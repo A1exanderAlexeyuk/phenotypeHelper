@@ -25,9 +25,9 @@ returnSettingsList <- function( ) {
 }
 getSpecDataframe <- function(
   cdmConnCdmSpec,
-  domainToSearch = 'Measurement',
   patternToSearch = c('transglutaminase')
 ) {
+
   measurements <- cdm$concept %>%
     filter(domain_id  == 'Measurement' &
              stringr::str_detect(tolower(concept_name), pattern)) %>%

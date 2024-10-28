@@ -38,7 +38,6 @@ cdm <- CDMConnector::cdm_from_con(
 
 specDf <- getSpecDataframe(
   cdmConnCdmSpec = cdm,
-  domainToSearch = 'Measurement',
   patternToSearch = c('transglutaminase', 'ig')
 )
 
