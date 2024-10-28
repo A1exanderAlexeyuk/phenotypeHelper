@@ -30,7 +30,7 @@ getSpecDataframe <- function(
 
   measurements <- cdm$concept %>%
     filter(domain_id  == 'Measurement' &
-             stringr::str_detect(tolower(concept_name), pattern)) %>%
+             stringr::str_detect(tolower(concept_name), patternToSearch)) %>%
     inner_join(cdm$measurement, join_by(
       concept_id == measurement_concept_id
     )) %>% select(
@@ -39,7 +39,7 @@ getSpecDataframe <- function(
       unit_source_value,
       unit_concept_id,
       value_as_concept_id
-    ) %>% distinct() %>% as.data.frame() %>%
+    ) %>% distinct() %>% dplyr::collect() %>%
     dplyr::arrange(measurement_name)
 }
 getDbList <- function() {

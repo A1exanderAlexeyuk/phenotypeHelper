@@ -38,8 +38,8 @@ cdm <- CDMConnector::cdm_from_con(
 
 specDf <- getSpecDataframe(
   cdmConnCdmSpec = cdm,
-  patternToSearch = c('transglutaminase', 'ig')
+  patternToSearch = 'transglutaminase'
 )
-
+data.table::fwrite(specDf , '')
 dbDisconnect(con)
 
